@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS } from '../../constants';
+import { COLORS, WEIGHTS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
+import Icon from '../Icon';
+import UnstyledButton from '../UnstyledButton';
+import VisuallyHidden from '../VisuallyHidden';
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
@@ -29,6 +32,20 @@ const Header = () => {
           <NavLink href="/kids">Kids</NavLink>
           <NavLink href="/collections">Collections</NavLink>
         </Nav>
+        <IconWrapper>
+          <UnstyledButton>
+            <Icon id="shopping-bag" color={COLORS.gray[900]} size="24px"/>
+            <VisuallyHidden>Shopping Cart</VisuallyHidden>
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id="search" color={COLORS.gray[900]} size="24px"/>
+            <VisuallyHidden>Search</VisuallyHidden>
+          </UnstyledButton>
+          <UnstyledButton>
+            <Icon id="menu" color={COLORS.gray[900]} size="24px"/>
+            <VisuallyHidden>Menu</VisuallyHidden>
+          </UnstyledButton>
+        </IconWrapper>
         <Side />
       </MainHeader>
 
@@ -40,22 +57,37 @@ const Header = () => {
   );
 };
 
+
 const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
   height: 72px;
   border-bottom: 1px solid ${COLORS.gray[300]};
+
+  @media ${QUERIES.tabletAndDown} {
+    border-top: 4px solid ${COLORS.gray[900]};
+    align-items: center;
+    justify-content: space-between;
+  }
 `;
 
 const Nav = styled.nav`
   display: flex;
   gap: 48px;
   margin: 0px 48px;
+
+  @media ${QUERIES.tabletAndDown} {
+    display: none;
+  }
 `;
 
 const Side = styled.div`
   flex: 1;
+
+  @media ${QUERIES.tabletAndDown} {
+    flex: revert;
+  }
 `;
 
 const NavLink = styled.a`
@@ -67,6 +99,24 @@ const NavLink = styled.a`
 
   &:first-of-type {
     color: ${COLORS.secondary};
+  }
+`;
+
+const IconWrapper = styled.div`
+  display: none;
+  @media ${QUERIES.tabletAndDown} {
+    display: flex;
+    gap: 32px;
+    margin-right: -3px;
+    padding-top: 1px;
+    & + ${Side} {
+      display: none;
+    }
+  }
+
+  @media ${QUERIES.phoneAndDown} {
+    gap: 16px;
+    margin-right: 0;
   }
 `;
 
