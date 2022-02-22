@@ -70,6 +70,10 @@ const MainHeader = styled.div`
     align-items: center;
     justify-content: space-between;
   }
+
+  @media ${QUERIES.phoneAndDown} {
+    padding-left: 16px;
+  }
 `;
 
 const Nav = styled.nav`
