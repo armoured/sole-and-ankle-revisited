@@ -42,6 +42,8 @@ On mobile, a lot of the spacing gets tightened up.
 
 **Be sure to check your work on a real mobile device.** You can use ngrok, as described in [the “Mobile Testing” lesson](https://courses.joshwcomeau.com/css-for-js/05-responsive-css/03-mobile-testing).
 
+Use `ngrok http 3000` to run ngrok
+
 ## Exercise 3: Tweaks to our main view
 
 On portrait tablet, our left-hand column disappears.
