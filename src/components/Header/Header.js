@@ -72,7 +72,7 @@ const MainHeader = styled.div`
   }
 
   @media ${QUERIES.phoneAndDown} {
-    padding-left: 16px;
+    padding: 18px 16px;
   }
 `;
 
