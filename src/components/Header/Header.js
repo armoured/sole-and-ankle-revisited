@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
 
-import { COLORS, WEIGHTS, QUERIES } from '../../constants';
+import { WEIGHTS, QUERIES } from '../../constants';
 import Logo from '../Logo';
 import SuperHeader from '../SuperHeader';
 import MobileMenu from '../MobileMenu';
@@ -34,15 +34,15 @@ const Header = () => {
         </Nav>
         <IconWrapper>
           <UnstyledButton>
-            <Icon id="shopping-bag" color={COLORS.gray[900]} size="24px"/>
+            <StyledIcon id="shopping-bag" size="24px"/>
             <VisuallyHidden>Shopping Cart</VisuallyHidden>
           </UnstyledButton>
           <UnstyledButton>
-            <Icon id="search" color={COLORS.gray[900]} size="24px"/>
+            <StyledIcon id="search" size="24px"/>
             <VisuallyHidden>Search</VisuallyHidden>
           </UnstyledButton>
           <UnstyledButton onClick={() => setShowMobileMenu(true)}>
-            <Icon id="menu" color={COLORS.gray[900]} size="24px"/>
+            <StyledIcon id="menu" size="24px"/>
             <VisuallyHidden>Menu</VisuallyHidden>
           </UnstyledButton>
         </IconWrapper>
@@ -62,11 +62,11 @@ const MainHeader = styled.div`
   display: flex;
   align-items: baseline;
   padding: 18px 32px;
-  border-bottom: 1px solid ${COLORS.gray[300]};
+  border-bottom: 1px solid var(--colors-gray-300);
   overflow: auto;
 
   @media ${QUERIES.tabletAndDown} {
-    border-top: 4px solid ${COLORS.gray[900]};
+    border-top: 4px solid var(--colors-gray-900);
     align-items: center;
     justify-content: space-between;
   }
@@ -103,11 +103,11 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: ${COLORS.gray[900]};
+  color: var(--colors-gray-900);
   font-weight: ${WEIGHTS.medium};
 
   &:first-of-type {
-    color: ${COLORS.secondary};
+    color: var(--colors-secondary);
   }
 `;
 
@@ -127,6 +127,10 @@ const IconWrapper = styled.div`
     gap: 16px;
     margin-right: 0;
   }
+`;
+
+const StyledIcon = styled(Icon)`
+  color: var(--colors-gray-900);
 `;
 
 export default Header;

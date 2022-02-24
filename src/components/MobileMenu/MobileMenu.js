@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components/macro';
 import { DialogOverlay, DialogContent } from '@reach/dialog';
 
-import { COLORS, WEIGHTS, QUERIES } from '../../constants';
+import { WEIGHTS, QUERIES } from '../../constants';
 
 import UnstyledButton from '../UnstyledButton';
 import Icon from '../Icon';
@@ -67,7 +67,7 @@ const StyledDialogContent = styled(DialogContent)`
   position: absolute;
   top: 0;
   right: 0;
-  background: ${COLORS.white};
+  background: var(--colors-white);
   height: 100%;
 
   // When the screen is too small just let the content cover the page
@@ -111,13 +111,13 @@ const NavLink = styled.a`
   font-weight: ${WEIGHTS.medium};
   font-size: ${18/16}rem;
   line-height: ${21/16}rem;
-  color: ${COLORS.gray[900]};
+  color: var(--colors-gray-900);
   text-decoration: none;
   text-transform: uppercase;
 
   ${p => p.active && 
     `
-      color: ${COLORS.secondary};
+      color: var(--colors-secondary);
     `
   }
 
@@ -137,7 +137,7 @@ const FooterLink = styled.a`
   font-weight: ${WEIGHTS.normal};
   font-size: ${14/16}rem;
   line-height: ${16/16}rem;
-  color: ${COLORS.gray[700]};
+  color: var(--colors-gray-700);
   text-decoration: none;
 
   &:hover {
